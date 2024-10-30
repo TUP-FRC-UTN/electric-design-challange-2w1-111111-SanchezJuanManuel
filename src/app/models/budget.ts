@@ -1,5 +1,5 @@
 export interface Budget {
-  id?: string;
+  id: string;
   client: string;
   date: Date;
   /* TODO
@@ -7,6 +7,7 @@ export interface Budget {
         - zone
         - moduleType reference that has information about (slots, price, type)
   */
+ modules: Module[];
 }
 
 export enum Zone {
@@ -21,4 +22,9 @@ export interface ModuleType {
   name: string;
   slots: number;
   price: number;
+}
+
+export interface Module {
+  zone : Zone;
+  moduleType: ModuleType;
 }

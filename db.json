@@ -1,5 +1,71 @@
 {
-  "budgets": [],
+  "budgets": [
+    {
+      "id": "",
+      "client": "",
+      "date": "",
+      "modules": [
+        {
+          "tiposModulo": "1",
+          "ambiente": "Living",
+          "precio": "",
+          "lugares": ""
+        }
+      ]
+    },
+    {
+      "id": "",
+      "client": "Juan",
+      "date": "2024-10-20",
+      "modules": [
+        {
+          "types": "5",
+          "zone": "Living",
+          "price": "",
+          "slots": ""
+        }
+      ]
+    },
+    {
+      "id": "",
+      "client": "Juan",
+      "date": "2024-10-20",
+      "modules": [
+        {
+          "types": "Interruptor simple",
+          "zone": "Living",
+          "price": "",
+          "slots": ""
+        },
+        {
+          "types": "Interruptor doble",
+          "zone": "Comedor",
+          "price": "",
+          "slots": ""
+        },
+        {
+          "types": "Toma corriente triple",
+          "zone": "Cocina",
+          "price": "",
+          "slots": ""
+        }
+      ]
+    },
+    {
+      "id": "",
+      "client": "",
+      "date": "",
+      "modules": [
+        {
+          "id": "",
+          "types": "1",
+          "zone": "Living",
+          "price": "",
+          "slots": ""
+        }
+      ]
+    }
+  ],
   "module-types": [
     {
       "id": "1",
