@@ -2,3 +2,98 @@
 https://getbootstrap.com/docs/5.3/forms/form-control/#example
 https://getbootstrap.com/docs/5.3/forms/select/#default
 https://getbootstrap.com/docs/5.3/forms/select/#default -->
+nueva Cotización
+<form [formGroup]="form" (ngSubmit)="save()">
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nombre"
+      formControlName="client"
+    />
+    @if (form.controls["client"]; as nombre) { @if (nombre.touched &&
+    nombre.invalid) {
+    <span>Debe ingresar un nombre de cliente</span>
+    } }
+  </div>
+  <div class="mb-3">
+    <label for="fecha" class="form-label">Fecha</label>
+    <input
+      type="date"
+      class="form-control"
+      id="fecha"
+      formControlName="date"
+    />
+    @if (form.controls["date"]; as fecha) { @if(fecha.touched && fecha.invalid)
+    {
+    <span>Debe ingresar una fecha</span>
+    } }
+  </div>
+  <div>
+    <button type="button" (click)="onNewModule()">+</button>
+    <div class="row" formArrayName="modules">
+      @for (item of modules.controls; track $index) {
+      <div class="col-6">
+        <button type="button" (click)="onDeleteModule($index)">x</button>
+        <div [formGroupName]="$index">
+          <h6>Modulo #{{ $index + 1 }}</h6>
+          <div>
+            <label for="tiposModulo" class="form-label">Tipos Módulo</label>
+            <select
+              formControlName="types"
+              class="form-control"
+              id="tiposModulo"
+              [(ngModel)]="selectedModule.id"
+              (change)="onChangeValue(selectedModule.id)"
+            >
+              @for (item of moduleTypes; track $index) {
+              <option [value]="item.id">{{ item.name }}</option>
+              }
+            </select>
+          </div>
+          <div>
+            <label for="ambiente" class="form-label">Ambiente</label>
+            <select
+              formControlName="zone"
+              class="form-control"
+              id="ambiente"
+            >
+              @for (item of zone; track $index) {
+              <option [value]="item">
+                {{ item }}
+              </option>
+              }
+            </select>
+            <div>
+              <label for="precio" class="form-label">Precio</label>
+              <input
+                type="number"
+                class="form-control"
+                formControlName="price"
+                id="precio"
+                readonly
+                [value]="price"
+              />
+            </div>
+            <div>
+                <label for="lugares" class="form-label">Lugares</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  formControlName="slots"
+                  id="lugares"
+                  readonly
+                  [value]="slots"
+                />
+              </div>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit">
+    Guardar
+  </button>
+</form>
